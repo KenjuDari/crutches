@@ -1,0 +1,3 @@
+D:/с++/CMake_tsoy_d_a/tsoy_d_a/build/CMakeFiles/ALL_BUILD.dir
+D:/с++/CMake_tsoy_d_a/tsoy_d_a/build/CMakeFiles/ZERO_CHECK.dir
+D:/с++/CMake_tsoy_d_a/tsoy_d_a/build/comlex/CMakeFiles/tsoy_d_a.dir
