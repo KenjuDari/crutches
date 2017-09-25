@@ -1,6 +1,0 @@
-ADD_EXECUTABLE( tsoy_d_a complex.cpp )
-ADD_EXECUTABLE( tsoy_d_a complex_test.cpp )
-ADD_EXECUTABLE( tsoy_d_a complex.h )
-ADD_EXECUTABLE( tsoy_d_a rational.cpp )
-ADD_EXECUTABLE( tsoy_d_a rational_test.cpp )
-ADD_EXECUTABLE( tsoy_d_a rational.h )

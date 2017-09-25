@@ -1,3 +1,6 @@
-D:/с++/CMake_tsoy_d_a/tsoy_d_a/build/CMakeFiles/ALL_BUILD.dir
-D:/с++/CMake_tsoy_d_a/tsoy_d_a/build/CMakeFiles/ZERO_CHECK.dir
-D:/с++/CMake_tsoy_d_a/tsoy_d_a/build/comlex/CMakeFiles/tsoy_d_a.dir
+D:/с++/github/tsoy_d_a/build/CMakeFiles/ALL_BUILD.dir
+D:/с++/github/tsoy_d_a/build/CMakeFiles/ZERO_CHECK.dir
+D:/с++/github/tsoy_d_a/build/prj_complex/CMakeFiles/ALL_BUILD.dir
+D:/с++/github/tsoy_d_a/build/prj_complex/complex/CMakeFiles/complex.dir
+D:/с++/github/tsoy_d_a/build/prj_rational/CMakeFiles/ALL_BUILD.dir
+D:/с++/github/tsoy_d_a/build/prj_rational/rational/CMakeFiles/rational.dir

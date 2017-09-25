@@ -1,4 +1,0 @@
-﻿  rational_test.cpp
-rational_test.obj : error LNK2005: "bool __cdecl testParse(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?testParse@@YA_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) уже определен в complex_test.obj
-rational_test.obj : error LNK2005: _main уже определен в complex_test.obj
-D:\с++\CMake_tsoy_d_a\tsoy_d_a\build\comlex\Debug\tsoy_d_a.exe : fatal error LNK1169: обнаружен многократно определенный символ - один или более

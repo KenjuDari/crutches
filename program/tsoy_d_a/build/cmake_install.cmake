@@ -1,4 +1,4 @@
-# Install script for directory: D:/с++/CMake_tsoy_d_a/tsoy_d_a
+# Install script for directory: D:/с++/github/tsoy_d_a
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,7 +29,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/с++/CMake_tsoy_d_a/tsoy_d_a/build/comlex/cmake_install.cmake")
+  include("D:/с++/github/tsoy_d_a/build/prj_complex/cmake_install.cmake")
+  include("D:/с++/github/tsoy_d_a/build/prj_rational/cmake_install.cmake")
 
 endif()
 
@@ -41,5 +42,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/с++/CMake_tsoy_d_a/tsoy_d_a/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/с++/github/tsoy_d_a/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
