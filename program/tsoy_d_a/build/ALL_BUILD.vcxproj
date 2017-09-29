@@ -165,10 +165,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="D:/с++/github/tsoy_d_a/build/ZERO_CHECK.vcxproj">
       <Project>3A8FB226-89F3-30D1-B566-5E78E998030A</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/с++/github/tsoy_d_a/build/prj_complex/complex/complex.vcxproj">
+    <ProjectReference Include="D:/с++/github/tsoy_d_a/build/complex/complex.vcxproj">
       <Project>598CF0EE-EE28-3538-952D-816A31CF4039</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/с++/github/tsoy_d_a/build/prj_rational/rational/rational.vcxproj">
+    <ProjectReference Include="D:/с++/github/tsoy_d_a/build/rational/rational.vcxproj">
       <Project>8A22DE2C-0C23-3EFD-8979-7A062C092ACF</Project>
     </ProjectReference>
   </ItemGroup>

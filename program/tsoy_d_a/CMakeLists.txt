@@ -1,4 +1,4 @@
 PROJECT( tsoy_d_a )
 
-ADD_SUBDIRECTORY( prj_complex )
-ADD_SUBDIRECTORY( prj_rational )
+ADD_SUBDIRECTORY( complex )
+ADD_SUBDIRECTORY( rational )
