@@ -23,31 +23,60 @@ bool testParse(const std::string& str)
 int main()
 {
 	using namespace std;
-	Rational z(9, 15);
-	cout << z << " + ";
-	Rational z2(3, 3);
-	cout << z2 << " = ";
+
+	Rational z = Rational();
+	cout << "Empty constructor: " << z << "\n";
+	z = Rational(-5);
+	cout << "Constructor wuth 1 param (-5): " << z << "\n";
+	z = Rational(-2, -10);
+	cout << "Constructor wuth 2 param (-2, -10): " << z << "\n";
+	Rational z2 = Rational(-6, -30);
+
+
+	cout << "z(-2, -10)" << " == " << "z2(-6, -30)";
+	if (z == z2)
+		cout << " true" << "\n";
+	else
+		cout << " false" << "\n";
+
+
+	cout << z << " != " << z2;
+	if (z != z2)
+		cout << " true" << "\n";
+	else
+		cout << " false" << "\n";	
+	
+	z2 = Rational(1, 4);
+	cout << z << " <= " << z2;
+	if (z <= z2)
+		cout << " true" << "\n";
+	else
+		cout << " false" << "\n";
+	cout << z << " > " << z2;
+	if (z > z2)
+		cout << " true" << "\n";
+	else
+		cout << " false" << "\n";
+
+
+	cout << z << " += " << z2 << "  result z = ";
 	z += z2;
-	cout << z;
-	cout << "\n" << z << " * ";
-	z2 = Rational(1, 2);
-	cout << z2 << " = ";
-	z *= z2;
+	cout << z << "\n";
+	cout << z << " - " << z2 << " = ";
+	cout << (z - z2) << "\n";
+	cout << z << " *= " << "5" << "  result z = ";
+	z *= 5;
 	cout << z << "\n";
 	cout << z << " / " << z2 << " = ";
-	z /= z2;
+	z = z / z2;
 	cout << z << "\n";
-	//cout << "-" << z << " = " << -z;
-	cout << z << "\n";
-	if (z == z2)
-		cout << z << " = " << z2 << "\n";
-	else
-		cout << z << " != " << z2 << "\n";
-	z2 = z;
-	if (z == z2)
-		cout << z << " = " << z2 << "\n";
-	else
-		cout << z << " != " << z2 << "\n";
+
+	z2 = Rational(4, -9);
+	cout << "z2 = " << z2 << "  -z2 = " << -z2 << "\n";
+	cout << "z = " << z << "  z^3 = " << Rational::pov(z, 3) << "\n";
+
+	cout << z << " + int 7 = " << (z + 7) << "\n";
+	cout << "int 3 / "<< z << "  = " << (3 / z) << "\n";
 
 	testParse("2/");
 	testParse("2/5");

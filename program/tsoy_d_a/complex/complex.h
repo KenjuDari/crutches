@@ -1,4 +1,3 @@
-#pragma once
 #ifndef COMPLEX_H
 #define COMPLEX_H
 
@@ -23,11 +22,11 @@ struct Complex {
 	Complex& operator/=(const double rhs);
 	Complex& operator=(const Complex& rhs);
 	Complex& operator=(const double rhs);
+	Complex operator-() const; // унарный минс
 	static Complex pov(const Complex& rhs, const int n); // возведение в степень
 	static Complex sopr(const Complex& rhs); // сопряженное
 	std::ostream& writeTo(std::ostream& ostrm) const;
 	std::istream& readFrom(std::istream& istrm);
-	//std::string toString() const;
 
 	double re{ 0.0 };
 	double im{ 0.0 };
@@ -41,13 +40,23 @@ struct Complex {
 Complex operator+(const Complex& lhs, const Complex& rhs);
 Complex operator-(const Complex& lhs, const Complex& rhs);
 Complex operator*(const Complex& lhs, const Complex& rhs);
-Complex operator*(const Complex& lhs, const Complex& rhs);
-//Complex operator-(const Complex& rhs); унарный минус
+Complex operator/(const Complex& lhs, const Complex& rhs);
+
+Complex operator+(const Complex& lhs, const double rhs);
+Complex operator-(const Complex& lhs, const double rhs);
+Complex operator*(const Complex& lhs, const double rhs);
+Complex operator/(const Complex& lhs, const double rhs);
+
+Complex operator+(const double lhs, const Complex& rhs);
+Complex operator-(const double lhs, const Complex& rhs);
+Complex operator*(const double lhs, const Complex& rhs);
+Complex operator/(const double lhs, const Complex& rhs);
+
 
 
 std::ostream& operator << (std::ostream& ostrm, const Complex& rhs);
 std::istream& operator >> (std::istream& istrm, Complex& rhs);
-//Complex tryParse() const;
+
 
 
 #endif 

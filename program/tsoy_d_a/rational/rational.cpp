@@ -1,12 +1,13 @@
 #include "rational.h"
 #include <iostream>
-#include <sstream>
 
 using namespace std;
 
 
 int nod(int a, int b)
 {
+	if (a < 0) a = -a;
+	if (b < 0) b = -b;
 	while (a != b)
 	{
 		if (a > b)
@@ -47,6 +48,7 @@ Rational::Rational(const int integer, const int natural)
 	//{
 
 	//}
+	Rational::normaliz(*this);
 }
 
 
@@ -61,6 +63,51 @@ bool Rational::operator!=(const Rational& rhs) const
 	return !operator==(rhs);
 }
 
+
+bool Rational::operator>(const Rational& rhs) const
+{
+	int k = nok(zn, rhs.zn);
+	int ch1 = ch;
+	int ch2 = rhs.ch;
+	if (zn != k)
+	{
+		ch1 *= k / zn;
+	}
+	if (rhs.zn != k)
+	{
+		ch2 *= (k / rhs.zn);
+	}
+	return ch1 > ch2;
+}
+
+
+bool Rational::operator<(const Rational& rhs) const
+{
+	int k = nok(zn, rhs.zn);
+	int ch1 = ch;
+	int ch2 = rhs.ch;
+	if (zn != k)
+	{
+		ch1 *= k / zn;
+	}
+	if (rhs.zn != k)
+	{
+		ch2 *= (k / rhs.zn);
+	}
+	return ch1 < ch2;
+}
+
+
+bool Rational::operator>=(const Rational& rhs) const
+{
+	return operator>(rhs) || operator==(rhs);
+}
+
+
+bool Rational::operator<=(const Rational& rhs) const
+{
+	return operator<(rhs) || operator==(rhs);
+}
 
 
 Rational& Rational::operator+=(const Rational& rhs)
@@ -149,6 +196,14 @@ Rational& Rational::operator/=(const Rational& rhs)
 }
 
 
+Rational Rational::operator-() const
+{
+	Rational rhs = *this;
+	rhs *= -1;
+	return rhs;
+}
+
+
 Rational Rational::pov(const Rational& rhs, const int n)
 {
 	Rational r = rhs;
@@ -160,6 +215,14 @@ Rational Rational::pov(const Rational& rhs, const int n)
 
 ostream& Rational::writeTo(std::ostream& ostrm) const
 {
+	if ((ch == 0) || (zn == 1))
+	{
+		if (ch == 0)
+			ostrm << "0";
+		else
+			ostrm << ch;
+	}
+	else
 	ostrm << ch << slash << zn;
 	return ostrm;
 }
@@ -169,9 +232,9 @@ istream& Rational::readFrom(std::istream& istrm)
 {
 	int integer(0);
 	char slash(0);
-	int natural(0);
+	int natural(1);
 	istrm >> integer >> slash >> natural;
-	if (istrm.good() || istrm.eof())
+	if (istrm.good())
 		if (Rational::slash == slash)
 		{
 			ch = integer;
@@ -228,8 +291,65 @@ Rational operator/(const Rational& r1, const Rational& r2)
 }
 
 
-//const Rational operator-(const Rational& rhs)
-//{
-//	return (rhs * Rational(-1));
-//}
+Rational operator+(const Rational& r1, const int r2)
+{
+	Rational sum(r1);
+	sum += r2;
+	return sum;
+}
 
+
+Rational operator-(const Rational& r1, const int r2)
+{
+	Rational raz(r1);
+	raz -= r2;
+	return raz;
+}
+
+
+Rational operator*(const Rational& r1, const int r2)
+{
+	Rational pr(r1);
+	pr *= r2;
+	return pr;
+}
+
+
+Rational operator/(const Rational& r1, const int r2)
+{
+	Rational raz(r1);
+	raz /= r2;
+	return raz;
+}
+
+
+Rational operator+(const int r1, const Rational& r2)
+{
+	Rational sum(r1);
+	sum += r2;
+	return sum;
+}
+
+
+Rational operator-(const int r1, const Rational& r2)
+{
+	Rational raz(r1);
+	raz -= r2;
+	return raz;
+}
+
+
+Rational operator*(const int r1, const Rational& r2)
+{
+	Rational pr(r1);
+	pr *= r2;
+	return pr;
+}
+
+
+Rational operator/(const int r1, const Rational& r2)
+{
+	Rational raz(r1);
+	raz /= r2;
+	return raz;
+}

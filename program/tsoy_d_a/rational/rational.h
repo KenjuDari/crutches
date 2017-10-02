@@ -1,4 +1,3 @@
-#pragma once
 #ifndef RATION_H
 #define RATION_H
 
@@ -12,6 +11,10 @@ public:
 	Rational(const int integer, const int natural);
 	bool operator==(const Rational& rhs) const;
 	bool operator!=(const Rational& rhs) const;
+	bool operator>(const Rational& rhs) const;
+	bool operator<(const Rational& rhs) const;
+	bool operator>=(const Rational& rhs) const;
+	bool operator<=(const Rational& rhs) const;
 	Rational& operator+=(const Rational& rhs);
 	Rational& operator+=(const int rhs);
 	Rational& operator-=(const Rational& rhs);
@@ -20,11 +23,10 @@ public:
 	Rational& operator*=(const int rhs);
 	Rational& operator/=(const Rational& rhs);
 	Rational& operator/=(const int rhs);
-	static Rational pov(const Rational& rhs, const int n);
-	//friend const Rational operator-(const Rational& rhs);
+	Rational operator-() const;
+	static Rational pov(const Rational& rhs, const int n); // возведение в степень
 	std::ostream& writeTo(std::ostream& ostrm) const;
 	std::istream& readFrom(std::istream& istrm);
-	//std::string toString() const;
 
 private:
 	int ch{ 0 };
@@ -41,8 +43,16 @@ Rational operator+(const Rational& r1, const Rational& r2);
 Rational operator-(const Rational& r1, const Rational& r2);
 Rational operator*(const Rational& r1, const Rational& r2);
 Rational operator/(const Rational& r1, const Rational& r2);
-//Rational operator-(const Rational& rhs); унарный минус
-//Rational tryParse() const;
+
+Rational operator+(const Rational& r1, const int r2);
+Rational operator-(const Rational& r1, const int r2);
+Rational operator*(const Rational& r1, const int r2);
+Rational operator/(const Rational& r1, const int r2);
+
+Rational operator+(const int r1, const Rational& r2);
+Rational operator-(const int r1, const Rational& r2);
+Rational operator*(const int r1, const Rational& r2);
+Rational operator/(const int r1, const Rational& r2);
 
 #endif 
 
