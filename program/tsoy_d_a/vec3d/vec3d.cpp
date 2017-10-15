@@ -13,7 +13,8 @@ Vec3d& Vec3d::operator=(const Vec3d& rhs)
 
 bool Vec3d::operator==(const Vec3d& rhs)
 {
-	if ((x - rhs.x) < 1e-10 && (y - rhs.y) < 1e-10 && (z - rhs.z) < 1e-10)
+	const double e = 1e-10;
+	if ((x - rhs.x) < e && (y - rhs.y) < e && (z - rhs.z) < e)
 		return true;
 	else
 		return false;
@@ -91,7 +92,7 @@ double Vec3d::lenth()
 
 ostream& Vec3d::writeTo(std::ostream& ostrm) const
 {
-	ostrm << leftBrace << probel << x << separator << probel << y << separator << probel << z << probel << rightBrace;
+	ostrm << leftBrace << " " << x << separator << " " << y << separator << " " << z << " " << rightBrace;
 	return ostrm;
 }
 
@@ -101,7 +102,6 @@ istream& Vec3d::readFrom(std::istream& istrm)
 	char l(0);
 	char s(0);
 	char r(0);
-	char p(0);
 	double a(0.0);
 	double b(0.0);
 	double c(0.0);

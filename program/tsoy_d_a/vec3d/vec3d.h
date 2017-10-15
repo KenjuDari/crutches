@@ -31,7 +31,6 @@ public:
 	static const char leftBrace{ '{' };
 	static const char separator{ ',' };
 	static const char rightBrace{ '}' };
-	static const char probel{ ' ' };
 };
 
 Vec3d operator+(const Vec3d& lhs, const Vec3d& rhs);
