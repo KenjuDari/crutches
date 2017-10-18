@@ -23,6 +23,7 @@ public:
 	Vec3dT<T>& operator*=(const T n);
 	Vec3dT<T>& operator/=(const T n);
 	Vec3dT<T> operator-() const; // унарный минс
+	bool compareTo(const Vec3dT<T>& rhs);
 	double scal(const Vec3dT<T>& rhs);
 	Vec3dT<T> vec(const Vec3dT<T>& rhs);
 	double lenth();
@@ -51,13 +52,39 @@ public:
 
 
 	template <typename T>
-	bool Vec3dT<T>::operator==(const Vec3dT<T>& rhs)
+	bool Vec3dT<T>::compareTo(const Vec3dT<T>& rhs)
 	{
-		const double e = 1e-10;
+		if ((x == rhs.x) && (y == rhs.y) && (z == rhs.z))
+			return true;
+		else
+			return false;
+	}
+
+	//template <>
+	bool Vec3dT<double>::compareTo(const Vec3dT<double>& rhs)
+	{
+			const double e = 1e-10;
+			if ((x - rhs.x) < e && (y - rhs.y) < e && (z - rhs.z) < e)
+				return true;
+			else
+				return false;
+	}
+
+	//template <>
+	bool Vec3dT<float>::compareTo(const Vec3dT<float>& rhs)
+	{
+		const float e = 1e-10;
 		if ((x - rhs.x) < e && (y - rhs.y) < e && (z - rhs.z) < e)
 			return true;
 		else
 			return false;
+	}
+
+
+	template <typename T>
+	bool Vec3dT<T>::operator==(const Vec3dT<T>& rhs)
+	{
+		return compareTo(rhs);
 	}
 
 

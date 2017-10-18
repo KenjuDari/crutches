@@ -33,7 +33,7 @@ int main()
 	z3 = Vec3dT<double>(0, 2, 3.0);
 
 
-	cout << "\n" << " z3 = " << z3 << "   z2 = " << z2 <<  "\n";
+	cout << "\n" << " z3 = " << z3 << "   z2 = " << z2 <<  "  (double) \n";
 	cout << "z3 == z2 ";
 	if (z3 == z2)
 		cout << " true" << "\n";
@@ -46,6 +46,22 @@ int main()
 		cout << " false" << "\n";
 	cout << "\n";
 
+
+	Vec3dT<float> z20(-5, 0, 1.1);
+	Vec3dT<float> z30(-7.1, 1.1, 1.1);
+	cout << "\n" << " z30 = " << z30 << "   z20 = " << z20 << "  (float) \n";
+	cout << "z30 == z20 ";
+	if (z30 == z20)
+		cout << " true" << "\n";
+	else
+		cout << " false" << "\n";
+	cout << " z30 != z20 ";
+	if (z30 != z20)
+		cout << " true" << "\n";
+	else
+		cout << " false" << "\n";
+
+	cout << "\n";
 
 	cout << z << " += " << z2 << "  result z = ";
 	z += z2;
@@ -71,7 +87,7 @@ int main()
 
 	Vec3dT<int> n(12, 0, -1);
 	Vec3dT<int> n2(-1, 0, -9);
-	cout << "\n" << " n = " << n << "   n2 = " << n2 << "\n";
+	cout << "\n" << " n = " << n << "   n2 = " << n2 << "  (int) \n";
 	cout << "n == n2 ";
 	if (n == n2)
 		cout << " true" << "\n";
