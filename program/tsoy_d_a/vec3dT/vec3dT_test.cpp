@@ -2,23 +2,25 @@
 
 #include <iostream>
 #include <sstream>
+#include <typeinfo.h>
+
 
 using namespace std;
 
-//template <typename T>
-//bool testParse<T>(const std::string& str)
-//{
-//	istringstream istrm(str);
-//	Vec3dT<T> z;
-//	istrm >> z;
-//	if (istrm.good()) {
-//		cout << "Read success: " << str << " -> " << z << endl;
-//	}
-//	else {
-//		cout << "Read error : " << str << " -> " << z << endl;
-//	}
-//	return istrm.good();
-//}
+
+bool testParse(const std::string& str, const std::type_info& T)
+{
+	istringstream istrm(str);
+	Vec3dT<T> z = Vec3dT<T>();
+	istrm >> z;
+	if (istrm.good()) {
+		cout << "Read success: " << str << " -> " << z << endl;
+	}
+	else {
+		cout << "Read error : " << str << " -> " << z << endl;
+	}
+	return istrm.good();
+}
 
 
 int main()
@@ -127,12 +129,14 @@ int main()
 	cout << "[n, n2] = " << n.vec(n2) << "\n";
 	cout << "\n";
 
-	//testParse<int>("{1,2,3}");
-	//testParse<double>("{ 0.0, 2, 3 }");
-	//testParse<double>("{ 1, 2, 3.3 }");
-	//testParse<double>("{      1  2  , 3     }");
-	//testParse<double>("1, 2, 3 }");
-	//testParse<double>("{ 1, 2, 3");
+	cout << "\n";
+
+	testParse("{1,2,3}", int);
+	//testParse("{ 0.0, 2, 3 }");
+	//testParse("{ 1, 2, 3.3 }");
+	//testParse("{      1  2  , 3     }");
+	//testParse("1, 2, 3 }");
+	//testParse("{ 1, 2, 3");
 
 	return 0;
 }
