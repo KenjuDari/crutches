@@ -10,7 +10,7 @@ struct Complex {
 	~Complex() = default;
 	explicit Complex(const double real);
 	Complex(const double real, const double imaginary);
-	Complex(const Complex& rhs): re(rhs.re), im(rhs.im) {}
+	Complex(const Complex& rhs) = default;
 	bool operator==(const Complex& rhs) const;
 	bool operator!=(const Complex& rhs) const;
 	Complex& operator+=(const Complex& rhs);

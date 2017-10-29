@@ -10,7 +10,7 @@ public:
 	Vec3d() = default;
 	~Vec3d() = default;
 	Vec3d(const double a, const double b, const double c): x(a), y(b), z(c) {}
-	Vec3d(const Vec3d& rhs): x(rhs.x), y(rhs.y), z(rhs.z) {}
+	Vec3d(const Vec3d& rhs) = default;
 	Vec3d& operator=(const Vec3d& rhs);
 	bool operator==(const Vec3d& rhs);
 	bool operator!=(const Vec3d& rhs);

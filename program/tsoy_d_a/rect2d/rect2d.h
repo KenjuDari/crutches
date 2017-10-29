@@ -11,7 +11,7 @@ public:
 	~Rect2d() = default;
 	Rect2d(const double a1, const double b1, const double a2, const double b2);
 	Rect2d(const double a2, const double b2);
-	Rect2d(const Rect2d& rhs);
+	Rect2d(const Rect2d& rhs) = default;
 	Rect2d& operator=(const Rect2d& rhs);
 	bool operator==(const Rect2d& rhs) const;
 	bool operator!=(const Rect2d& rhs) const;

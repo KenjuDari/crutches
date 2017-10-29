@@ -8,25 +8,25 @@
 using namespace std;
 
 
-bool testParse(const std::string& str, const std::type_info& T)
-{
-	istringstream istrm(str);
-	Vec3dT<T> z = Vec3dT<T>();
-	istrm >> z;
-	if (istrm.good()) {
-		cout << "Read success: " << str << " -> " << z << endl;
-	}
-	else {
-		cout << "Read error : " << str << " -> " << z << endl;
-	}
-	return istrm.good();
-}
+//bool testParse(const std::string& str, const std::type_info& T)
+//{
+//	istringstream istrm(str);
+//	Vec3dT<T> z = Vec3dT<T>();
+//	istrm >> z;
+//	if (istrm.good()) {
+//		cout << "Read success: " << str << " -> " << z << endl;
+//	}
+//	else {
+//		cout << "Read error : " << str << " -> " << z << endl;
+//	}
+//	return istrm.good();
+//}
 
 
 int main()
 {
 
-	Vec3dT<double> z = Vec3dT<double>();
+	Vec3dT<double> z;
 	cout << "Empty constructor: z = " << z << "\n";
 	Vec3dT<double> z2(-5, 0, 1.1);
 	cout << "Constructor wuth 3 param: z2 = " << z2 << "\n";
@@ -131,7 +131,7 @@ int main()
 
 	cout << "\n";
 
-	testParse("{1,2,3}", int);
+	//testParse("{1,2,3}", int);
 	//testParse("{ 0.0, 2, 3 }");
 	//testParse("{ 1, 2, 3.3 }");
 	//testParse("{      1  2  , 3     }");

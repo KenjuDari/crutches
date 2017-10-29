@@ -21,9 +21,9 @@ bool testParse(const std::string& str)
 
 int main()
 {
-	Vec3d z = Vec3d();
+	Vec3d z;
 	cout << "Empty constructor: z = " << z << "\n";
-	z = Vec3d(-5, 0, 1.1);
+	Vec3d z(-5, 0, 1.1);
 	cout << "Constructor wuth 3 param: z = " << z << "\n";
 	Vec3d z2(z);
 	cout << "Constructor copy: z2(z) = " << z << "\n";

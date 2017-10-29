@@ -35,8 +35,6 @@ Rect2d::Rect2d(const double a2, const double b2) : x1(0), y1(0), x2(a2), y2(b2)
 	Rect2d::normaliz(*this);
 }
 
-Rect2d::Rect2d(const Rect2d& rhs) : x1(rhs.x1), y1(rhs.y1), x2(rhs.x2), y2(rhs.y2) {}
-
 
 Rect2d& Rect2d::operator=(const Rect2d& rhs)
 {

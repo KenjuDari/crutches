@@ -21,9 +21,9 @@ bool testParse(const std::string& str)
 
 int main()
 {
-	Complex z = Complex();
+	Complex z;
 	cout << "Empty constructor: " << z << "\n";
-	z = Complex(-5);
+    Complex z(-5);
 	cout << "Constructor wuth 1 param: " << z << "\n";
 	z = Complex(2, 7);
 	cout << "Constructor wuth 2 param: " << z << "\n";

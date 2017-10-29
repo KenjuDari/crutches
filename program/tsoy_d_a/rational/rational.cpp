@@ -1,5 +1,7 @@
 #include "rational.h"
 #include <iostream>
+#include <cassert>
+
 
 using namespace std;
 
@@ -44,10 +46,7 @@ Rational::Rational(const int n)
 Rational::Rational(const int integer, const int natural)
 	: ch(integer), zn(natural)
 {
-	//if (0 == natural) throw
-	//{
-
-	//}
+	if (0 == natural) throw invalid_argument("Error: Can't divide into 0");
 	Rational::normaliz(*this);
 }
 

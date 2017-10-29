@@ -24,13 +24,13 @@ int main()
 {
 	using namespace std;
 
-	Rational z = Rational();
+	Rational z;
 	cout << "Empty constructor: " << z << "\n";
-	z = Rational(-5);
+	z = Rational (-5);
 	cout << "Constructor wuth 1 param (-5): " << z << "\n";
 	z = Rational(-2, -10);
 	cout << "Constructor wuth 2 param (-2, -10): " << z << "\n";
-	Rational z2 = Rational(-6, -30);
+	Rational z2(-6, -30);
 
 
 	cout << "z(-2, -10)" << " == " << "z2(-6, -30)";
@@ -83,5 +83,19 @@ int main()
 	testParse("3/pp5");
 	testParse("4 / 6   ");
 	testParse("4 / 6   rrr");
+
+	try
+	{
+		Rational error(4, 0);
+	}
+	catch (invalid_argument& e)
+	{
+		cout << e.what() << endl;
+	}
+	catch (...)
+	{
+		cout << "Unknown, try else:" << endl;
+		throw;
+	}
 	return 0;
 }

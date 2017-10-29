@@ -9,6 +9,7 @@ public:
 	~Rational() = default;
 	explicit Rational(const int n);
 	Rational(const int integer, const int natural);
+	Rational(Rational& rhs) = default;
 	bool operator==(const Rational& rhs) const;
 	bool operator!=(const Rational& rhs) const;
 	bool operator>(const Rational& rhs) const;

@@ -14,7 +14,7 @@ public:
 	Vec3dT<T>() = default;
 	~Vec3dT<T>() = default;
 	Vec3dT<T>(const T a, const T b, const T c) : x(a), y(b), z(c) {}
-	Vec3dT<T>(const Vec3dT<T>& rhs) : x(rhs.x), y(rhs.y), z(rhs.z) {}
+	Vec3dT<T>(const Vec3dT<T>& rhs) = default;
 	Vec3dT<T>& operator=(const Vec3dT<T>& rhs);
 	bool operator==(const Vec3dT<T>& rhs);
 	bool operator!=(const Vec3dT<T>& rhs);
