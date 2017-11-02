@@ -24,16 +24,16 @@ public:
 	void remove(const int i);
 	//istream& readFrom(const std::istream& istrm);
 private:
-	static const int defaultSize = 5;
+	static const int defaultSize = 8;
 	static const int max{ 32 }; // физический размер, до которого физический массив увеличивается вдвое
-	                            // далее увеличивается на 5
+	                            // далее увеличивается на 8
 	int physicalSize(const int n); // метод возвращающий физический размер, до которого нужно увеличить массив
 	                               // с учетом статического поля max
 	                               // одновременно записывает полученное значение в поле physSize
-	Array& changePhysycSize(const int n); // изменение физического массива до размера n, используется в resize
 	ptrdiff_t physSize{ defaultSize * 2 }; // поле, хранящее размер физического массива
 	ptrdiff_t size{ defaultSize }; // логический размер
 	int* pData_{ nullptr };
+	void swap(Array& lhs, Array& rhs);
 	static const char scob1{ '{' };
 	static const char scob2{ '}' };
 	static const char separator{ ',' };
