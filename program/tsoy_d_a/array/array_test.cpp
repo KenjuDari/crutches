@@ -50,6 +50,10 @@ int main()
 	cout << "Remove last element: " << n4 << " Size " << n4.lenth() << " Physical size " << n4.physicalLenth() << endl;
 	n4.remove(3);
 	cout << "Remove 4 element: " << n4 << " Size " << n4.lenth() << " Physical size " << n4.physicalLenth() << endl;
+	 
+	Array n5 = n4;
+	cout << "n4 == n5 " << (n4 == n5) << endl;
+	cout << "n2 == n5 " << (n2 == n5) << endl;
 
 	//cout << "n2: " << n2 << endl;
 	//cout << "n3: " << n3 << endl;

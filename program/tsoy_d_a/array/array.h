@@ -15,6 +15,8 @@ public:
 	~Array();
 	Array& operator=(const Array& rhs);
 	int& operator[](const ptrdiff_t i);
+	bool operator==(const Array& rhs) const;
+	bool operator!=( const Array& rhs) const;
 	const int& operator[](const ptrdiff_t i) const;
 	Array& resize(const int n);
 	int lenth() const; // логический размер

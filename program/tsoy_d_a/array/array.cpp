@@ -76,6 +76,27 @@ const int& Array::operator[](const ptrdiff_t i) const
 	return pData_[i];
 }
 
+bool Array::operator==(const Array& rhs) const
+{
+	bool result = true;
+	for (int i(0); i < size; i++)
+	{
+		if (pData_[i] != rhs.pData_[i])
+		{
+			result = false;
+		}
+	}
+	return result;
+}
+
+
+bool Array::operator!=(const Array& rhs) const
+{
+	return !(operator==(rhs));
+}
+
+
+
 Array& Array::resize(const int n)
 {
 	if (n <= 0) {
