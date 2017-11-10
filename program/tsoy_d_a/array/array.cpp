@@ -18,11 +18,8 @@ Array::Array(const int n): size(n)
 
 Array::Array(const Array& rhs): size(rhs.size), pData_(new int[physicalSize(rhs.size)]{ int() })
 {
-	if (this != &rhs)
-	{
-		for (int i(0); i < rhs.size; i++)
-			pData_[i] = rhs.pData_[i];
-	}
+	for (int i(0); i < rhs.size; i++)
+		pData_[i] = rhs.pData_[i];
 }
 
 Array::~Array()
@@ -55,24 +52,20 @@ void Array::swap(Array& lhs, Array& rhs)
 
 Array& Array::operator=(const Array& rhs)
 {
-	if (this != &rhs)
-	{
-	swap(*this, Array(rhs));  
+    swap(*this, Array(rhs));  
 	size = rhs.size;
-	}
 	return *this;
 }
 
 int& Array::operator[](const ptrdiff_t i)
 {
-	//if ((i <= 0) || (i >= size)) { throw invalid_argument("Error2: Out of range in insert"); }  //вызывает искдючение
+	if ((i < 0) || (i >= size)) { throw invalid_argument("Error2: Out of range"); }  
 	return pData_[i];
 }
 
 const int& Array::operator[](const ptrdiff_t i) const
 {
-	//if ((i <= 0) || (i >= size)) {
-	//	throw invalid_argument("Error3: Out of range in insert"); }
+	if ((i < 0) || (i >= size)) { throw invalid_argument("Error3: Out of range"); }
 	return pData_[i];
 }
 
@@ -140,7 +133,7 @@ int Array::physicalLenth() const
 
 ostream& Array::writeTo(std::ostream& ostrm) const
 {
-	if (!(pData_ == nullptr))
+	if (pData_ != nullptr)
 	{
 		ostrm << scob1 << ' ';
 		for (int i(0); i < size - 1; i++)

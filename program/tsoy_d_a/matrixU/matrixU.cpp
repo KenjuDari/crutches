@@ -17,14 +17,11 @@ MatrixU::MatrixU(const int row, const int col) : nRow(row), nCol(col)
 
 MatrixU::MatrixU(const MatrixU& rhs) :nRow(rhs.nRow), nCol(rhs.nCol), pData_(new int[rhs.nRow * rhs.nCol]{ int() })
 {
-	if (this != &rhs)
+	for (int j(0); j < nRow; j++)
 	{
-		for (int j(0); j < nRow; j++)
+		for (int i{ 0 }; i < nCol; i++)
 		{
-			for (int i{ 0 }; i < nCol; i++)
-			{
-				pData_[nCol * j + i] = rhs.pData_[nCol * j + i];
-			}
+			pData_[nCol * j + i] = rhs.pData_[nCol * j + i];
 		}
 	}
 }
@@ -47,12 +44,9 @@ void MatrixU::swap(MatrixU& lhs, MatrixU& rhs)
 
 MatrixU& MatrixU::operator=(const MatrixU& rhs)
 {
-	if (this != &rhs)
-	{
-		MatrixU::swap(*this, MatrixU(rhs));
-		nRow = rhs.nRow;
-		nCol = rhs.nCol;
-	}
+	MatrixU::swap(*this, MatrixU(rhs));
+	nRow = rhs.nRow;
+	nCol = rhs.nCol;
 	return *this;
 }
 
@@ -80,20 +74,20 @@ bool MatrixU::operator!=(const MatrixU& rhs) const
 
 int& MatrixU::at(const ptrdiff_t iRow, const ptrdiff_t iCol)
 {
-	//if ((iRow < 0) || (iCol < 0) || (iRow >= nRow) || (nRow >= iCol))  { throw invalid_argument("Error2: Size can't be less or equals 0"); }
+	if ((iRow < 0) || (iCol < 0) || (iRow >= nRow) || (iCol >= nCol)) { throw invalid_argument("Error2: Out of range"); }
 	return pData_[nCol * iRow + iCol];
 }
 
 const int& MatrixU::at(const ptrdiff_t iRow, const ptrdiff_t iCol) const
 {
-	//if ((iRow < 0) || (iCol < 0) || (iRow >= nRow) || (nRow >= iCol))  { throw invalid_argument("Error3: Size can't be less or equals 0"); }
+	if ((iRow < 0) || (iCol < 0) || (iRow >= nRow) || (iCol >= nCol)) { throw invalid_argument("Error3: Out of range"); }
 	return pData_[nCol * iRow + iCol];
 }
 
 
 ostream& MatrixU::writeTo(std::ostream& ostrm) const
 {
-	if (!(pData_ == nullptr))
+	if (pData_ != nullptr)
 	{
 		for (int j(0); j < nRow; j++)
 		{
