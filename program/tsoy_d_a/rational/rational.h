@@ -9,7 +9,7 @@ public:
 	~Rational() = default;
 	explicit Rational(const int n);
 	Rational(const int integer, const int natural);
-	Rational(Rational& rhs) = default;
+	Rational(const Rational& rhs) = default;
 	bool operator==(const Rational& rhs) const;
 	bool operator!=(const Rational& rhs) const;
 	bool operator>(const Rational& rhs) const;
@@ -25,6 +25,7 @@ public:
 	Rational& operator/=(const Rational& rhs);
 	Rational& operator/=(const int rhs);
 	Rational operator-() const;
+	Rational& operator=(const Rational& rhs);
 	static Rational pov(const Rational& rhs, const int n); // возведение в степень
 	std::ostream& writeTo(std::ostream& ostrm) const;
 	std::istream& readFrom(std::istream& istrm);

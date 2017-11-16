@@ -1,7 +1,7 @@
 #include "matrixU.h"
 #include<iostream>
 #include<sstream>
-#include<cassert>
+#include <stdexcept>
 
 using namespace std;
 

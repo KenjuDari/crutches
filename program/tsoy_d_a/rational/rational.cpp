@@ -1,6 +1,6 @@
 #include "rational.h"
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 
 
 using namespace std;
@@ -49,6 +49,14 @@ Rational::Rational(const int integer, const int natural)
 	if (0 == natural) throw invalid_argument("Error: Can't divide into 0");
 	Rational::normaliz(*this);
 }
+
+Rational& Rational::operator=(const Rational& rhs)
+{
+	ch = rhs.ch;
+	zn = rhs.zn;
+	return *this;
+}
+
 
 
 bool Rational::operator==(const Rational& rhs) const
@@ -197,7 +205,7 @@ Rational& Rational::operator/=(const Rational& rhs)
 
 Rational Rational::operator-() const
 {
-	Rational rhs = *this;
+	Rational rhs(*this);
 	rhs *= -1;
 	return rhs;
 }
@@ -205,7 +213,7 @@ Rational Rational::operator-() const
 
 Rational Rational::pov(const Rational& rhs, const int n)
 {
-	Rational r = rhs;
+	Rational r(rhs);
 	for (int i(1); i < n; i++)
 		r *= rhs;
 	return r;
