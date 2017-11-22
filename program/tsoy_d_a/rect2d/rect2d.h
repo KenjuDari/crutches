@@ -2,7 +2,6 @@
 #define RECT2D_H
 
 #include <iosfwd>
-using namespace std;
 
 class Rect2d
 {
@@ -19,8 +18,8 @@ public:
 	//static ... obedin(const Rect2d& rhs1, const Rect2d& rhs2);       Что возвращать? array[8,2]?
 	//static ... razn(const Rect2d& rhs1, const Rect2d& rhs2);
 	double square();
-	ostream& writeTo(std::ostream& ostrm) const;
-	istream& readFrom(std::istream& istrm);
+	std::ostream& writeTo(std::ostream& ostrm) const;
+	std::istream& readFrom(std::istream& istrm);
 
 private:
 	double x1{ 0.0 };
@@ -35,7 +34,7 @@ private:
 	static void normaliz(Rect2d& rhs);
 };
 
-ostream& operator<<(std::ostream& ostrm, const Rect2d& rhs);
-istream& operator >> (std::istream& istrm, Rect2d& rhs);
+std::ostream& operator<<(std::ostream& ostrm, const Rect2d& rhs);
+std::istream& operator >> (std::istream& istrm, Rect2d& rhs);
 
 #endif 

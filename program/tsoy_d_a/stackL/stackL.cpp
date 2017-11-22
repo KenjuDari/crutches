@@ -5,7 +5,7 @@
 
 using namespace std;
 
-StackL::Node::Node(Node* pNext, const int& value) : pNext_(pNext), data_(value)
+StackL::Node::Node(Node* pNext, const int& value) : pNext_(pNext), pData_(value)
 {
 }
 
@@ -24,33 +24,66 @@ StackL::~StackL()
 
 StackL::StackL(const StackL& rhs)
 {
-	StackL turned;
-	Node* pForget(rhs.pHead_);
-	while (nullptr != (pForget))
+	//StackL turned;
+	//Node* pForget(rhs.pHead_);
+	//while (nullptr != (pForget))
+	//{
+	//	turned.push(pForget ->pData_);
+	//	pForget = pForget -> pNext_;
+	//}
+	//while (!turned.isEmpty())
+	//{
+	//	push(turned.top());
+	//	turned.pop();
+	//}
+
+	Node* pCopyFrom(rhs.pHead_->pNext_);
+	Node* pCopyTo = new Node(nullptr, rhs.pHead_->pData_);
+	pHead_ = pCopyTo;
+	while (pCopyFrom != nullptr)
 	{
-		turned.push(pForget -> data_);
-		pForget = pForget -> pNext_;
-	}
-	while (!turned.isEmpty())
-	{
-		push(turned.top());
-		turned.pop();
+		pCopyTo->pNext_ = new Node(nullptr, pCopyFrom->pData_);
+		pCopyTo = pCopyTo->pNext_;
+		pCopyFrom = pCopyFrom->pNext_;
 	}
 }
 
 StackL& StackL::operator=(const StackL& rhs)
 {
-	StackL turned;
-	Node* pForget(rhs.pHead_);
-	while (nullptr != (pForget))
+	Node* pCopyTo = pHead_;
+	Node* pCopyFrom = rhs.pHead_;
+	while ((pCopyTo->pNext_ != nullptr) && (pCopyFrom->pNext_ != nullptr))
 	{
-		turned.push(pForget->data_);
-		pForget = pForget->pNext_;
+		pCopyTo->pData_ = pCopyFrom->pData_;
+		pCopyTo = pCopyTo->pNext_;
+		pCopyFrom = pCopyFrom->pNext_;
 	}
-	while (!turned.isEmpty())
+	if ( (pCopyTo->pNext_ == nullptr) && (pCopyFrom->pNext_ != nullptr))
 	{
-		push(turned.top());
-		turned.pop();
+		pCopyTo->pData_ = pCopyFrom->pData_;
+		pCopyFrom = pCopyFrom->pNext_;
+		while (pCopyFrom != nullptr)
+		{
+			pCopyTo->pNext_ = new Node(nullptr, pCopyFrom->pData_);
+			pCopyTo = pCopyTo->pNext_;
+			pCopyFrom = pCopyFrom->pNext_;
+		}
+	}
+	else
+	{
+		if ((pCopyFrom->pNext_ == nullptr) && (pCopyTo->pNext_ != nullptr))
+		{
+			pCopyTo->pData_ = pCopyFrom->pData_;
+			Node* pContinue(pCopyTo->pNext_);
+			pCopyTo->pNext_ = nullptr;
+			Node* pDelete;
+			while (pContinue != nullptr)
+			{
+				pDelete = pContinue;
+				pContinue = pDelete->pNext_;
+				delete pDelete;
+			}
+		}
 	}
 	return *this;
 }
@@ -74,7 +107,7 @@ int& StackL::top()
 	if (isEmpty()) {
 		throw invalid_argument("Error: Stack is Empty");
 	}
-	return pHead_->data_;
+	return pHead_->pData_;
 }
 
 const int& StackL::top() const
@@ -82,7 +115,7 @@ const int& StackL::top() const
 	if (isEmpty()) {
 		throw invalid_argument("Error: Stack is Empty");
 	}
-	return pHead_->data_;
+	return pHead_->pData_;
 }
 
 ostream& operator<<(std::ostream& ostrm, const StackL& rhs)

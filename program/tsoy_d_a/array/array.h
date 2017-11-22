@@ -4,8 +4,6 @@
 #include <stddef.h>
 #include <iosfwd>
 
-using namespace std;
-
 class Array
 {
 public:
@@ -21,7 +19,7 @@ public:
 	Array& resize(const int n);
 	int lenth() const; // логический размер
 	int physicalLenth() const; // физический размер
-	ostream& writeTo(std::ostream& ostrm) const;
+	std::ostream& writeTo(std::ostream& ostrm) const;
 	void insert(const int n, const int i); // вставка в позицию array[i], а не i-ый элемент
 	void remove(const int i);
 	//istream& readFrom(const std::istream& istrm);
@@ -41,6 +39,6 @@ private:
 	static const char separator{ ',' };
 };
 
-ostream& operator<<(std::ostream& ostrm, const Array& rhs);
+std::ostream& operator<<(std::ostream& ostrm, const Array& rhs);
 //istream& operator>>(std::istream& istrm, const Array& rhs);
 #endif 

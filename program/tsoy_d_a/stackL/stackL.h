@@ -22,7 +22,7 @@ private:
 		Node(Node* pNext, const int& value);
 		~Node() = default;
 		Node* pNext_{ nullptr };
-		int data_{ int(0) };
+		int pData_{ int(0) };
 	};
 	Node* pHead_{ nullptr };
 };

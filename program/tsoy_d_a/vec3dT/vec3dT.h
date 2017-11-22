@@ -4,8 +4,6 @@
 #include <iostream>
 #include <sstream>
 
-using namespace std;
-
 template <typename T>
 
 struct Vec3dT
@@ -96,7 +94,7 @@ public:
 
 
 	template <typename T>
-	ostream& Vec3dT<T>::writeTo(std::ostream& ostrm) const
+	std::ostream& Vec3dT<T>::writeTo(std::ostream& ostrm) const
 	{
 		ostrm << leftBrace << " " << x << separator << " " << y << separator << " " << z << " " << rightBrace;
 		return ostrm;
@@ -104,7 +102,7 @@ public:
 
 
 	template <typename T>
-	istream& Vec3dT<T>::readFrom(std::istream& istrm)
+	std::istream& Vec3dT<T>::readFrom(std::istream& istrm)
 	{
 		char l(0);
 		char s(0);
@@ -129,14 +127,14 @@ public:
 
 
 	template <typename T>
-	ostream& operator << (std::ostream& ostrm, const Vec3dT<T>& rhs)
+	std::ostream& operator << (std::ostream& ostrm, const Vec3dT<T>& rhs)
 	{
 		return rhs.writeTo(ostrm);
 	}
 
 
 	template <typename T>
-	istream& operator >> (std::istream& istrm, Vec3dT<T>& rhs)
+	std::istream& operator >> (std::istream& istrm, Vec3dT<T>& rhs)
 	{
 		return rhs.readFrom(istrm);
 	}

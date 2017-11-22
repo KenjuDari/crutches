@@ -4,8 +4,6 @@
 #include <stddef.h>
 #include <iosfwd>
 
-using namespace std;
-
 class MatrixU
 {
 public:
@@ -18,7 +16,7 @@ public:
 	bool operator!=(const MatrixU& rhs) const;
 	int& at(const ptrdiff_t iRow, const ptrdiff_t iCol);
 	const int& at(const ptrdiff_t iRow, const ptrdiff_t iCol) const;
-	ostream& writeTo(std::ostream& ostrm) const;
+	std::ostream& writeTo(std::ostream& ostrm) const;
 	int Row() const;
 	int Col() const;
 	MatrixU& resize(const ptrdiff_t r, const ptrdiff_t c);
@@ -31,6 +29,6 @@ private:
 	void swap(MatrixU& lhs, MatrixU& rhs);
 };
 
-ostream& operator<<(std::ostream& ostrm, const MatrixU& rhs);
+std::ostream& operator<<(std::ostream& ostrm, const MatrixU& rhs);
 
 #endif 
