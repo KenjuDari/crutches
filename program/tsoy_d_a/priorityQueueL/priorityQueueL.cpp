@@ -9,17 +9,59 @@ PriorityQueueL::Node::Node(Node* pNext, const int& v): pNext_(pNext), pData_(v)
 
 bool PriorityQueueL::isEmpty() const
 {
-	return (pHead_ == nullptr);
+	return (pTail_ == nullptr);
 }
 
 PriorityQueueL::PriorityQueueL(const PriorityQueueL& rhs)
 {
-	Node* copyFrom(pHead_);
+	Node* copyFrom(rhs.pTail_);
 	while (copyFrom != nullptr)
 	{
 		push(copyFrom->pData_);
 		copyFrom = copyFrom->pNext_;
 	}
+}
+PriorityQueueL& PriorityQueueL::operator=(const PriorityQueueL& rhs)
+{
+	Node* copyFrom(rhs.pTail_);
+	Node* copyTo(pTail_);
+	while ( (copyTo != pHead_) && (copyFrom != rhs.pHead_) )
+	{
+		copyTo->pData_ = copyFrom->pData_;
+		copyTo = copyTo->pNext_;
+		copyFrom = copyFrom->pNext_;
+	}
+	if ((copyTo != pHead_) && (copyFrom != rhs.pHead_))
+	{
+		copyTo->pData_ = copyFrom->pData_;
+	}
+	else
+	{
+		if ((copyTo == pHead_) && (copyFrom != rhs.pHead_))
+		{
+			copyTo->pData_ = copyFrom->pData_;
+			while (copyFrom != nullptr)
+			{
+				push(copyFrom->pData_);
+				copyFrom = copyFrom->pNext_;
+			}
+		}
+		else
+		{
+			copyTo->pData_ = copyFrom->pData_;
+			pHead_ = copyTo;
+			pHead_->pNext_ = nullptr;
+			copyTo = copyTo->pNext_;
+			Node* pDelete(copyTo);
+			while (copyTo != nullptr)
+			{
+				copyTo = copyTo->pNext_;
+				delete pDelete;
+				pDelete = copyTo;
+			}
+		}
+	}
+	return *this;
 }
 
 PriorityQueueL::~PriorityQueueL()
@@ -32,10 +74,15 @@ PriorityQueueL::~PriorityQueueL()
 
 void PriorityQueueL::push(const int& v)
 {
-	pTail_->pNext_ = new Node(nullptr, v);
 	if (isEmpty())
 	{
-		pHead_ = pTail_;
+		pHead_ = new Node(nullptr, v);
+	    pTail_ = pHead_;
+	}
+	else
+	{
+		pHead_->pNext_ = new Node(nullptr, v);
+		pHead_ = pHead_->pNext_;
 	}
 }
 
@@ -43,8 +90,8 @@ void PriorityQueueL::pop()
 {
 	if (!isEmpty())
 	{
-		Node* pDelete(pHead_);
-		pHead_ = pHead_->pNext_;
+		Node* pDelete(pTail_);
+		pTail_ = pTail_->pNext_;
 		delete pDelete;
 	}
 }
@@ -54,7 +101,7 @@ int& PriorityQueueL::bot()
 	if (isEmpty()) {
 		throw std::invalid_argument("Error: Stack is Empty");
 	}
-	return pHead_->pData_;
+	return pTail_->pData_;
 }
 
 const int& PriorityQueueL::bot() const
@@ -62,16 +109,32 @@ const int& PriorityQueueL::bot() const
 	if (isEmpty()) {
 		throw std::invalid_argument("Error: Stack is Empty");
 	}
-	return pHead_->pData_;
+	return pTail_->pData_;
 }
 
 std::ostream& PriorityQueueL::writeAll(std::ostream& ostrm) const
 {
-	Node* copy(pHead_);
-	while (pHead_ != nullptr)
+	//if (!isEmpty())
+	//{
+	//	Node* copy(pTail_);
+	//	while (copy != nullptr)
+	//	{
+	//		ostrm << copy->pData_ << std::endl;
+	//		copy = copy->pNext_;
+	//	}
+	//}
+	if (!isEmpty())
 	{
-		ostrm << copy->pData_ << std::endl;
-		copy = pHead_->pNext_;
+		PriorityQueueL copy(*this);
+		while (!copy.isEmpty())
+		{
+			ostrm << copy.bot() << std::endl;
+			copy.pop();
+		}
+	}
+	else
+	{
+		ostrm << "Queue is Empty";
 	}
 	return ostrm;
 }
