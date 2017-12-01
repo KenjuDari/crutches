@@ -16,13 +16,17 @@ int main()
 	cout << s << endl;
 	cout << "IsEmpty: " << s.isEmpty() << endl;
 	StackL s2(s);
-	s.~StackL();
-	cout << "IsEmpty after destructor: " << s.isEmpty() << endl;
 	cout << "Copy costructor: " << endl;
 	cout << s2 << endl;
 	s2.top() = 10101;
 	cout << "Change top: " << endl;
 	cout << s2 << endl;
+	
+	StackL sEmpty;
+	StackL sCopiedFromEmpty(sEmpty);
+	cout << "Copy from empty costructor: " << endl;
+	cout << sCopiedFromEmpty << endl;
+	
 	StackL s3;
 	s3.push(4);
 	s3.push(-1);

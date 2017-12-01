@@ -16,8 +16,7 @@ bool StackL::isEmpty() const
 
 StackL::~StackL()
 {
-	while (!isEmpty())
-	{
+	while (!isEmpty()) {
 		pop();
 	}
 }
@@ -36,15 +35,21 @@ StackL::StackL(const StackL& rhs)
 	//	push(turned.top());
 	//	turned.pop();
 	//}
-
-	Node* pCopyFrom(rhs.pHead_->pNext_);
-	Node* pCopyTo = new Node(nullptr, rhs.pHead_->pData_);
-	pHead_ = pCopyTo;
-	while (pCopyFrom != nullptr)
-	{
-		pCopyTo->pNext_ = new Node(nullptr, pCopyFrom->pData_);
-		pCopyTo = pCopyTo->pNext_;
-		pCopyFrom = pCopyFrom->pNext_;
+	if (!rhs.isEmpty()) {
+		Node* pCopyFrom(rhs.pHead_->pNext_);
+		Node* pCopyTo = new Node(nullptr, rhs.pHead_->pData_);
+		pHead_ = pCopyTo;
+		while (pCopyFrom != nullptr)
+		{
+			pCopyTo->pNext_ = new Node(nullptr, pCopyFrom->pData_);
+			pCopyTo = pCopyTo->pNext_;
+			pCopyFrom = pCopyFrom->pNext_;
+		}
+	}
+	else {
+		while (!isEmpty()) {
+			pop();
+		}
 	}
 }
 
@@ -125,11 +130,16 @@ ostream& operator<<(std::ostream& ostrm, const StackL& rhs)
 
 ostream& StackL::writeAll(std::ostream& ostrm) const
 {
-	StackL copyStack(*this);
-	while (!copyStack.isEmpty())
-	{
-		ostrm << copyStack.top() << endl;
-		copyStack.pop();
+	if (!isEmpty()) {
+		StackL copyStack(*this);
+		while (!copyStack.isEmpty())
+		{
+			ostrm << copyStack.top() << endl;
+			copyStack.pop();
+		}
+	}
+	else {
+		ostrm << "Stack is Empty";
 	}
 	return ostrm;
 }
