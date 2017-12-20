@@ -63,48 +63,49 @@ double Rect2d::square()
 }
 
 
-Rect2d& Rect2d::peresech(const Rect2d& rhs1, const Rect2d& rhs2)
+void Rect2d::peresech(const Rect2d& rhs)
 {
 	double a1(0.0);
 	double b1(0.0);
 	double a2(0.0);
 	double b2(0.0);
-	if ((rhs2.x1 >= rhs1.x1) && (rhs2.x1 <= rhs1.x2))
+	if ((rhs.x1 >= x1) && (rhs.x1 <= x2))
 	{
-		a1 = rhs2.x1;
-		if (rhs2.x2 <= rhs1.x2)
-			a2 = rhs2.x2;
+		a1 = rhs.x1;
+		if (rhs.x2 <= x2)
+			a2 = rhs.x2;
 		else
-			a2 = rhs1.x2;
+			a2 = x2;
 	}
 	else
 	{
-		if ((rhs2.x2 >= rhs1.x1) && (rhs2.x2 <= rhs1.x2))
+		if ((rhs.x2 >= x1) && (rhs.x2 <= x2))
 		{
-			a1 = rhs1.x1;
-			a2 = rhs2.x2;
+			a1 = x1;
+			a2 = rhs.x2;
 		}
 	}
 
-	if ((rhs2.y1 >= rhs1.y1) && (rhs2.y1 <= rhs1.y2))
+	if ((rhs.y1 >= y1) && (rhs.y1 <=y2))
 	{
-		b1 = rhs2.y1;
-		if (rhs2.y2 <= rhs1.y2)
-			b2 = rhs2.y2;
+		b1 = rhs.y1;
+		if (rhs.y2 <= y2)
+			b2 = rhs.y2;
 		else
-			b2 = rhs1.y2;
+			b2 = y2;
 	}
 	else
 	{
-		if ((rhs2.y2 >= rhs1.y1) && (rhs2.y2 <= rhs1.y2))
+		if ((rhs.y2 >= y1) && (rhs.y2 <= y2))
 		{
-			b1 = rhs1.y1;
-			b2 = rhs2.y2;
+			b1 = y1;
+			b2 = rhs.y2;
 		}
 	}
-
-	return Rect2d(a1, b1, a2, b2);
-
+	x1 = a1;
+	y1 = b1;
+	x2 = a2;
+	y2 = b2;
 }
 
 

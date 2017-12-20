@@ -1,5 +1,5 @@
-PROJECT ( stackR )
+PROJECT ( stackr )
 
-ADD_EXECUTABLE ( stackR stackR.cpp )
-ADD_EXECUTABLE ( stackR stackR_test.cpp )
-ADD_EXECUTABLE ( stackR stackR.h )
+ADD_EXECUTABLE ( stackr stackr.cpp )
+ADD_EXECUTABLE ( stackr stackr_test.cpp )
+ADD_EXECUTABLE ( stackr stackr.h )

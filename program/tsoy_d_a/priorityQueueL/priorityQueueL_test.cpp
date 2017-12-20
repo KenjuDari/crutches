@@ -1,4 +1,4 @@
-#include "priorityQueueL.h"
+#include "priorityqueuel.h"
 #include <iostream>
 
 using namespace std;
@@ -6,11 +6,14 @@ using namespace std;
 int main()
 {
 	PriorityQueueL p;
-	cout << p << endl;
-	p.push(77);
-	p.push(33);
+	cout << "Constructor without param: " << endl << p << endl;
 	p.push(-3);
-	cout << "Queue p after add 77, 33, -3:" << endl << p << endl;
+	cout << "Queue p after add -3" << endl << p << endl;
+	p.push(33);
+	p.push(1);
+	p.push(100);
+	p.push(100);
+	cout << "Queue p after add -3, 33, 1, 100, 100:" << endl << p << endl;
 	p.pop();
 	cout << "p after pop:" << endl << p << endl;
 	PriorityQueueL p2(p);
@@ -32,12 +35,12 @@ int main()
 	cout << "p3:" << endl << p3 << endl;
 	p = p3;
 	cout << "p = p3:" << endl << p << endl;
-	p3.~PriorityQueueL();
-	cout << "p3 after destructor: " << endl << p3 << endl;
+	PriorityQueueL emptyQueue;
+	cout << "try emptyQueue.bot()" << endl;
 
 	try
 	{
-		p3.bot();
+		emptyQueue.bot();
 	}
 	catch (invalid_argument& e)
 	{

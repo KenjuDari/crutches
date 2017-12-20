@@ -71,7 +71,7 @@ public:
 	//template <>
 	bool Vec3dT<float>::compareTo(const Vec3dT<float>& rhs)
 	{
-		const float e = 1e-10;
+		const float e = (float)1e-10;
 		if ((x - rhs.x) < e && (y - rhs.y) < e && (z - rhs.z) < e)
 			return true;
 		else

@@ -1,5 +1,5 @@
-PROJECT ( matrixU ) 
+PROJECT ( matrixu ) 
 
-ADD_EXECUTABLE( matrixU matrixU.cpp )
-ADD_EXECUTABLE( matrixU matrixU_test.cpp )
-ADD_EXECUTABLE( matrixU matrixU.h )
+ADD_EXECUTABLE( matrixu matrixu.cpp )
+ADD_EXECUTABLE( matrixu matrixu_test.cpp )
+ADD_EXECUTABLE( matrixu matrixu.h )

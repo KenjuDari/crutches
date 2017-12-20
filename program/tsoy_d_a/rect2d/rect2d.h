@@ -14,7 +14,7 @@ public:
 	Rect2d& operator=(const Rect2d& rhs);
 	bool operator==(const Rect2d& rhs) const;
 	bool operator!=(const Rect2d& rhs) const;
-	static Rect2d& peresech(const Rect2d& rhs1, const Rect2d& rhs2);
+    void peresech(const Rect2d& rhs);
 	//static ... obedin(const Rect2d& rhs1, const Rect2d& rhs2);       Что возвращать? array[8,2]?
 	//static ... razn(const Rect2d& rhs1, const Rect2d& rhs2);
 	double square();

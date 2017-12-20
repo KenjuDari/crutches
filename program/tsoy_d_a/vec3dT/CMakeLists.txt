@@ -1,4 +1,4 @@
-PROJECT( vec3dT )
+PROJECT( vec3dt )
 
-ADD_EXECUTABLE( vec3dT vec3dT_test.cpp )
-ADD_EXECUTABLE( vec3dT vec3dT.h )
+ADD_EXECUTABLE( vec3dt vec3dt_test.cpp )
+ADD_EXECUTABLE( vec3dt vec3dt.h )

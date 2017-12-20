@@ -1,4 +1,4 @@
-#include "vec3dT.h"
+#include "vec3dt.h"
 
 #include <iostream>
 #include <sstream>
@@ -7,136 +7,113 @@
 
 using namespace std;
 
-
-//bool testParse(const std::string& str, const std::type_info& T)
-//{
-//	istringstream istrm(str);
-//	Vec3dT<T> z = Vec3dT<T>();
-//	istrm >> z;
-//	if (istrm.good()) {
-//		cout << "Read success: " << str << " -> " << z << endl;
-//	}
-//	else {
-//		cout << "Read error : " << str << " -> " << z << endl;
-//	}
-//	return istrm.good();
-//}
-
-
 int main()
 {
 
 	Vec3dT<double> z;
-	cout << "Empty constructor: z = " << z << "\n";
+	cout << "Empty constructor<double>: z = " << z << endl;
 	Vec3dT<double> z2(-5, 0, 1.1);
-	cout << "Constructor wuth 3 param: z2 = " << z2 << "\n";
+	cout << "Constructor wuth 3 param<double>: z2 = " << z2 << endl;
 	Vec3dT<double> z3(z2);
-	cout << "Constructor copy: z3(z2) = " << z3 << "\n";
+	cout << "Constructor copy<double>: z3(z2) = " << z3 << endl;
 	z3 = Vec3dT<double>(0, 2, 3.0);
 
 
-	cout << "\n" << " z3 = " << z3 << "   z2 = " << z2 <<  "  (double) \n";
+	cout << endl << " z3 = " << z3 << "   z2 = " << z2 <<  "  (double)" << endl;
 	cout << "z3 == z2 ";
 	if (z3 == z2)
-		cout << " true" << "\n";
+		cout << " true" << endl;
 	else
-		cout << " false" << "\n";
+		cout << " false" << endl;
 	cout << " z3 != z2 ";
 	if (z3 != z2)
-		cout << " true" << "\n";
+		cout << " true" << endl;
 	else
-		cout << " false" << "\n";
-	cout << "\n";
+		cout << " false" << endl;
+	cout << endl;
 
 
 	Vec3dT<float> z20(-5, 0, 1.1);
 	Vec3dT<float> z30(-7.1, 1.1, 1.1);
-	cout << "\n" << " z30 = " << z30 << "   z20 = " << z20 << "  (float) \n";
+	cout << endl << " z30 <float> = " << z30 << "   z20 <float> = " << z20  << endl;
 	cout << "z30 == z20 ";
 	if (z30 == z20)
-		cout << " true" << "\n";
+		cout << " true" << endl;
 	else
-		cout << " false" << "\n";
+		cout << " false" << endl;
 	cout << " z30 != z20 ";
 	if (z30 != z20)
-		cout << " true" << "\n";
+		cout << " true" << endl;
 	else
-		cout << " false" << "\n";
+		cout << " false" << endl;
 
-	cout << "\n";
+	cout << endl;
 
 	cout << z << " += " << z2 << "  result z = ";
 	z += z2;
-	cout << z << "\n";
+	cout << z << endl;
 	cout << z << " -= " << z2 << "  result z = ";
 	z -= z2;
-	cout << z << "\n";
-	cout << "\n";
+	cout << z << endl;
+	cout << endl;
 	cout << z3 << " *= " << "5" << "  result z = ";
 	z3 *= 5;
-	cout << z3 << "\n";
+	cout << z3 << endl;
 	cout << z3 << " / " << "5" << " = ";
 	z3 = z3 / 5.0;
-	cout << z3 << "\n";
-	cout << "\n";
-	cout << "z2 = " << z2 << "  -z2 = " << -z2 << "\n";
-	cout << "z2 = " << z2 << "  lenth = " << z2.lenth() << "\n";
+	cout << z3 << endl;
+	cout << endl;
+	cout << "z2 = " << z2 << "  -z2 = " << -z2 << endl;
+	cout << "z2 = " << z2 << "  lenth = " << z2.lenth() << endl;
 
-	cout << "z3 = " << z3 << "  z2 = " << z2 << "  z3 * z2 = " << z3.scal(z2) << "\n";
-	cout << "[z3, z2] = " << z3.vec(z2) << "\n";
-	cout << "\n" << "\n" << "\n";
+	cout << "z3 = " << z3 << "  z2 = " << z2 << "  z3 * z2 = " << z3.scal(z2) << endl;
+	cout << "[z3, z2] = " << z3.vec(z2) << endl;
+	cout << endl << endl << endl;
 
 
 	Vec3dT<int> n(12, 0, -1);
 	Vec3dT<int> n2(-1, 0, -9);
-	cout << "\n" << " n = " << n << "   n2 = " << n2 << "  (int) \n";
+	cout << endl << " n<int> = " << n << "   n2<int> = " << n2 << endl;
 	cout << "n == n2 ";
 	if (n == n2)
-		cout << " true" << "\n";
+		cout << " true" << endl;
 	else
-		cout << " false" << "\n";
+		cout << " false" << endl;
 	cout << " n != n2 ";
 	if (n != n2)
-		cout << " true" << "\n";
+		cout << " true" << endl;
 	else
-		cout << " false" << "\n";
+		cout << " false" << endl;
 	cout << "n == n ";
 	if (n == n)
-		cout << " true" << "\n";
+		cout << " true" << endl;
 	else
-		cout << " false" << "\n";
-	cout << "\n";
+		cout << " false" << endl;
+	cout << endl;
 
 
 	cout << n << " += " << n2 << "  result z = ";
 	n += n2;
-	cout << n << "\n";
+	cout << n << endl;
 	cout << n << " -= " << n2 << "  result z = ";
 	n -= n2;
-	cout << n << "\n";
-	cout << "\n";
+	cout << n << endl;
+	cout << endl;
 	cout << n << " *= " << "5" << "  result z = ";
 	n *= 5;
-	cout << n << "\n";
+	cout << n << endl;
 	cout << n << " / " << "5" << " = ";
 	n = n / 5;
-	cout << n << "\n";
-	cout << "\n";
-	cout << "n = " << n << "  -n = " << -n << "\n";
-	cout << "n = " << n << "  lenth = " << n.lenth() << "\n";
+	cout << n << endl;
+	cout << endl;
+	cout << "n = " << n << "  -n = " << -n << endl;
+	cout << "n = " << n << "  lenth = " << n.lenth() << endl;
 
-	cout << "n = " << n << "  n2 = " << n2 << "  n * n2 = " << n.scal(n2) << "\n";
-	cout << "[n, n2] = " << n.vec(n2) << "\n";
-	cout << "\n";
+	cout << "n = " << n << "  n2 = " << n2 << "  n * n2 = " << n.scal(n2) << endl;
+	cout << "[n, n2] = " << n.vec(n2) << endl;
+	cout << endl;
 
-	cout << "\n";
-
-	//testParse("{1,2,3}", int);
-	//testParse("{ 0.0, 2, 3 }");
-	//testParse("{ 1, 2, 3.3 }");
-	//testParse("{      1  2  , 3     }");
-	//testParse("1, 2, 3 }");
-	//testParse("{ 1, 2, 3");
+	cout << endl;
 
 	return 0;
 }

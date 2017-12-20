@@ -21,42 +21,43 @@ bool testParse(const std::string& str)
 
 int main()
 {
-	Vec3d z;
-	cout << "Empty constructor: z = " << z << "\n";
+	Vec3d z0;
+	cout << "Empty constructor: z0 = " << z0 << endl;
 	Vec3d z(-5, 0, 1.1);
-	cout << "Constructor wuth 3 param: z = " << z << "\n";
+	cout << "Constructor wuth 3 param: z = " << z << endl;
 	Vec3d z2(z);
-	cout << "Constructor copy: z2(z) = " << z << "\n";
-	Vec3d z3 = z;
-	cout << "\n" << " z3 = z2 \n";
+	cout << "Constructor copy: z2(z) = " << z << endl;
+	Vec3d z3;
+	z3 = z2;
+	cout << endl << " z3 = z2" << endl;
 	cout << z3 << "(z3) == " << z2 << "(z2)";
 	if (z3 == z2)
-		cout << " true" << "\n";
+		cout << " true" << endl;
 	else
-		cout << " false" << "\n";
+		cout << " false" << endl;
 	cout << z3 << " != " << z2;
 	if (z3 != z2)
-		cout << " true" << "\n";
+		cout << " true" << endl;
 	else
-		cout << " false" << "\n";
+		cout << " false" << endl;
 	z2 = Vec3d(-3, 1, 0);
 	cout << z << " += " << z2 << "  result z = ";
 	z += z2;
-	cout << z << "\n";
+	cout << z << endl;
 	cout << z << " -= " << z2 << "  result z = ";
 	z -= z2;
-	cout << z << "\n";
+	cout << z << endl;
 	cout << z << " *= " << "5" << "  result z = ";
 	z *= 5;
-	cout << z << "\n";
+	cout << z << endl;
 	cout << z << " / " << "5" << " = ";
 	z = z / 5;
-	cout << z << "\n";
-	cout << "z2 = " << z2 << "  -z2 = " << -z2 << "\n";
-	cout << "z2 = " << z2 << "  lenth = " << z2.lenth() << "\n";
+	cout << z << endl;
+	cout << "z2 = " << z2 << "  -z2 = " << -z2 << endl;
+	cout << "z2 = " << z2 << "  lenth = " << z2.lenth() << endl;
 
-	cout << "z = " << z << "  z2 = " << z2 << "  z * z2 = " << z.scal(z2) << "\n";
-	cout << "[z, z2] = " << z.vec(z2) << "\n";
+	cout << "z = " << z << "  z2 = " << z2 << "  z * z2 = " << z.scal(z2) << endl;
+	cout << "[z, z2] = " << z.vec(z2) << endl;
 
 	testParse("{1,2,3}");
 	testParse("{ 0.0, 2, 3 }");

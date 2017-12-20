@@ -1,4 +1,4 @@
-#include "priorityQueueL.h"
+#include "priorityqueuel.h"
 #include <iostream>
 #include <stdexcept>
 
@@ -25,7 +25,7 @@ PriorityQueueL& PriorityQueueL::operator=(const PriorityQueueL& rhs)
 {
 	Node* copyFrom(rhs.pTail_);
 	Node* copyTo(pTail_);
-	while ( (copyTo != pHead_) && (copyFrom != rhs.pHead_) )
+	while ((copyTo != pHead_) && (copyFrom != rhs.pHead_))
 	{
 		copyTo->pData_ = copyFrom->pData_;
 		copyTo = copyTo->pNext_;
@@ -42,7 +42,9 @@ PriorityQueueL& PriorityQueueL::operator=(const PriorityQueueL& rhs)
 			copyTo->pData_ = copyFrom->pData_;
 			while (copyFrom != nullptr)
 			{
-				push(copyFrom->pData_);
+				//push(copyFrom->pData_);
+				pHead_->pNext_ = new Node(nullptr, copyFrom->pData_);
+				pHead_ = pHead_->pNext_;
 				copyFrom = copyFrom->pNext_;
 			}
 		}
@@ -81,8 +83,33 @@ void PriorityQueueL::push(const int& v)
 	}
 	else
 	{
-		pHead_->pNext_ = new Node(nullptr, v);
-		pHead_ = pHead_->pNext_;
+		Node* search = pTail_;
+		if (pTail_ == pHead_)
+		{
+			if (pHead_->pData_ > v) {
+				pHead_->pNext_ = new Node(nullptr, v);
+				pTail_ = pHead_;
+				pHead_ = pHead_->pNext_;
+			}
+			else {
+				pTail_ = new Node(pHead_, v);
+			}
+			return;
+		}
+		if (pTail_->pData_ < v) {
+			pTail_ = new Node(pTail_, v);
+			return;
+		}
+		while (search->pNext_->pData_ > v) 
+		{
+			search = search->pNext_;
+			if (search->pNext_ == nullptr) {
+				search->pNext_ = new Node(nullptr, v);
+				pHead_ = search->pNext_;
+				return;
+			}
+		}
+		search->pNext_ = new Node(search->pNext_, v);
 	}
 }
 
@@ -114,22 +141,13 @@ const int& PriorityQueueL::bot() const
 
 std::ostream& PriorityQueueL::writeAll(std::ostream& ostrm) const
 {
-	//if (!isEmpty())
-	//{
-	//	Node* copy(pTail_);
-	//	while (copy != nullptr)
-	//	{
-	//		ostrm << copy->pData_ << std::endl;
-	//		copy = copy->pNext_;
-	//	}
-	//}
 	if (!isEmpty())
 	{
-		PriorityQueueL copy(*this);
-		while (!copy.isEmpty())
+		Node* writeAll = pTail_;
+		while (writeAll != nullptr)
 		{
-			ostrm << copy.bot() << std::endl;
-			copy.pop();
+			ostrm << writeAll->pData_ << std::endl;
+			writeAll = writeAll->pNext_;
 		}
 	}
 	else

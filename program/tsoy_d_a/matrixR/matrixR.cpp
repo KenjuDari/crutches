@@ -1,4 +1,4 @@
-#include "matrixR.h"
+#include "matrixr.h"
 #include<iostream>
 #include<sstream>
 #include <stdexcept>
@@ -119,7 +119,7 @@ ostream& MatrixR::writeTo(std::ostream& ostrm) const
 	}
 	else
 	{
-		ostrm << "Array was deleting or wasn't created";
+		ostrm << "Array is Empty";
 	}
 	return ostrm;
 }

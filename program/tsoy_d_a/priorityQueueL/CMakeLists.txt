@@ -1,5 +1,5 @@
-PROJECT ( priorityQueueL )
+PROJECT ( priorityqueuel )
 
-ADD_EXECUTABLE ( priorityQueueL priorityQueueL.cpp )
-ADD_EXECUTABLE ( priorityQueueL priorityQueueL_test.cpp )
-ADD_EXECUTABLE ( priorityQueueL priorityQueueL.h )
+ADD_EXECUTABLE ( priorityqueuel priorityqueuel.cpp )
+ADD_EXECUTABLE ( priorityqueuel priorityqueuel_test.cpp )
+ADD_EXECUTABLE ( priorityqueuel priorityqueuel.h )

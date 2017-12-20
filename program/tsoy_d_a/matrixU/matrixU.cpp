@@ -1,4 +1,4 @@
-#include "matrixU.h"
+#include "matrixu.h"
 #include<iostream>
 #include<sstream>
 #include <stdexcept>

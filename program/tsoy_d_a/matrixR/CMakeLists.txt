@@ -1,5 +1,5 @@
-PROJECT ( matrixR ) 
+PROJECT ( matrixr ) 
 
-ADD_EXECUTABLE( matrixR matrixR.cpp )
-ADD_EXECUTABLE( matrixR matrixR_test.cpp )
-ADD_EXECUTABLE( matrixR matrixR.h )
+ADD_EXECUTABLE( matrixr matrixr.cpp )
+ADD_EXECUTABLE( matrixr matrixr_test.cpp )
+ADD_EXECUTABLE( matrixr matrixr.h )

@@ -2,6 +2,7 @@
 #include<iostream>
 #include<sstream>
 #include<cassert>
+#include <stdexcept>
 
 using namespace std;
 

@@ -1,4 +1,4 @@
-#include "stackR.h"
+#include "stackr.h"
 #include <iostream>
 
 using namespace std;
