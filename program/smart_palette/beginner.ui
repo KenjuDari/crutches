@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Beginner</class>
+ <widget class="QWidget" name="Beginner">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>500</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::TabFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Smart Palette</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/pictures/resource/finish2.png</normaloff>:/pictures/resource/finish2.png</iconset>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <layout class="QGridLayout" name="gridLayoutMain">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QStackedWidget" name="pages">
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="pageMenu">
+      <widget class="MyImage" name="background" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>32</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <widget class="MyVerticalLayout" name="layoutButtonsMenu" native="true">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="MyLabel" name="title" native="true">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>30</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="pageGame">
+      <widget class="MyImage" name="backgroundGame" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>291</width>
+         <height>600</height>
+        </rect>
+       </property>
+       <widget class="MyLabel" name="labelLvl" native="true">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>120</width>
+          <height>80</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="MyImage" name="colorWin" native="true">
+        <property name="geometry">
+         <rect>
+          <x>69</x>
+          <y>547</y>
+          <width>120</width>
+          <height>80</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="MyLabel" name="gameTime" native="true">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>120</width>
+          <height>80</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="MyLabel" name="gameStep" native="true">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>50</y>
+          <width>120</width>
+          <height>80</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="MyButton" name="buttonHelp" native="true">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>290</y>
+          <width>16</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="MyButton" name="buttonRenew" native="true">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>300</y>
+          <width>16</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="MyButton" name="buttonMenu" native="true">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>350</y>
+          <width>16</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="MyImage" name="winWindow" native="true">
+       <property name="geometry">
+        <rect>
+         <x>309</x>
+         <y>60</y>
+         <width>141</width>
+         <height>301</height>
+        </rect>
+       </property>
+       <widget class="MyButton" name="closeHelp" native="true">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>10</y>
+          <width>41</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="MyButton" name="buttonNext" native="true">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>70</y>
+          <width>31</width>
+          <height>16</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="MyStar" name="star0" native="true">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>170</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="MyStar" name="star1" native="true">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>220</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="MyStar" name="star2" native="true">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>180</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="pageLevels">
+      <widget class="MyLabel" name="titleLevels" native="true">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>40</y>
+         <width>120</width>
+         <height>80</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="MyImage" name="background2" native="true">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>220</y>
+         <width>120</width>
+         <height>80</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="pageRules">
+      <widget class="MyImage" name="backgroundRule" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>271</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <widget class="MyButton" name="closeHelp2" native="true">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>160</y>
+          <width>41</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MyImage</class>
+   <extends>QWidget</extends>
+   <header>myimage.h</header>
+   <container>1</container>
+   <slots>
+    <slot>getRatio(double)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>MyVerticalLayout</class>
+   <extends>QWidget</extends>
+   <header>myverticallayout.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MyLabel</class>
+   <extends>QWidget</extends>
+   <header>mylabel.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MyButton</class>
+   <extends>QWidget</extends>
+   <header>mybutton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MyStar</class>
+   <extends>QWidget</extends>
+   <header>mystar.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+ <slots>
+  <signal>changeSizeHeight(QString)</signal>
+  <signal>changeSizeHeightRatio(double)</signal>
+ </slots>
+</ui>
